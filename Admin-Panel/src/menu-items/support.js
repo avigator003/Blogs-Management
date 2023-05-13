@@ -1,17 +1,20 @@
 // assets
-import { ChromeOutlined, QuestionOutlined } from '@ant-design/icons';
+import { ChromeOutlined, QuestionOutlined,FileExclamationOutlined ,EditOutlined,UnorderedListOutlined} from '@ant-design/icons';
 
 // icons
 const icons = {
     ChromeOutlined,
-    QuestionOutlined
+    QuestionOutlined,
+    FileExclamationOutlined,
+    EditOutlined,
+    UnorderedListOutlined
 };
 
 // ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //
 
 const support = {
     id: 'support',
-    title: 'Support',
+    title: 'Blog Management',
     type: 'group',
     children: [
         {
@@ -19,14 +22,23 @@ const support = {
             title: 'Blogs Editor',
             type: 'item',
             url: '/sample-page',
-            icon: icons.ChromeOutlined
+            icon: icons.EditOutlined
+        },
+        {
+            id: 'blogs-list',
+            title: 'Blogs List',
+            type: 'item',
+            url: 'https://codedthemes.gitbook.io/mantis-react/',
+            icon: icons.UnorderedListOutlined,
+            external: true,
+            target: true
         },
         {
             id: 'documentation',
-            title: 'Documentation',
+            title: 'Drafts',
             type: 'item',
             url: 'https://codedthemes.gitbook.io/mantis-react/',
-            icon: icons.QuestionOutlined,
+            icon: icons.FileExclamationOutlined,
             external: true,
             target: true
         }

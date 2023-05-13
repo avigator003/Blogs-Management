@@ -4,6 +4,9 @@ import EditorJS from '@editorjs/editorjs';
 import { EDITOR_JS_TOOLS } from "../constants";
 import MainCard from 'components/MainCard';
 
+import avatar1 from 'assets/images/users/avatar-1.png';
+import { Button } from '../../../node_modules/@mui/material/index';
+
 const DEFAULT_INITIAL_DATA = () => {
   return {
     "time": new Date().getTime(),
@@ -25,9 +28,9 @@ const SamplePage = (props) => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
 
-   useEffect(()=>{
-    console.log("data",editorData)
-   },[editorData])
+  useEffect(() => {
+    console.log("data", editorData)
+  }, [editorData])
 
   // This will run only once
   useEffect(() => {
@@ -53,14 +56,46 @@ const SamplePage = (props) => {
         setEditorData(content);
       },
       autofocus: true,
-      tools:EDITOR_JS_TOOLS
+      tools: EDITOR_JS_TOOLS
     });
   };
 
   return (
-    <MainCard title="Sample Card">
+    <MainCard title="Chinu's Blog">
       <div id={EDITTOR_HOLDER_ID}> </div>
-      </MainCard>
+      <div>
+        <Button
+          disableElevation
+          size="large"
+          type="submit"
+          variant="contained"
+          color="primary"
+          style={{ marginRight: 10 }}
+        >
+          Save Draft
+        </Button>
+        <Button
+          disableElevation
+          size="large"
+          type="submit"
+          variant="contained"
+          color="success"
+          style={{ marginRight: 10 }}
+        >
+          Publish
+        </Button>
+        <Button
+          disableElevation
+          size="large"
+          type="submit"
+          variant="contained"
+          color="warning"
+          style={{ marginRight: 10 }}
+        >
+          Preview
+        </Button>
+      </div>
+    </MainCard>
   );
 }
 

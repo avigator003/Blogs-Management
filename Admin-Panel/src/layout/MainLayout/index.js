@@ -23,7 +23,8 @@ const MainLayout = () => {
     const dispatch = useDispatch();
 
     const { drawerOpen } = useSelector((state) => state.menu);
-
+     
+    
     // drawer toggler
     const [open, setOpen] = useState(drawerOpen);
     const handleDrawerToggle = () => {
@@ -40,7 +41,8 @@ const MainLayout = () => {
     }, [matchDownLG]);
 
     useEffect(() => {
-        if (open !== drawerOpen) setOpen(drawerOpen);
+        if (open !== drawerOpen) 
+        setOpen(drawerOpen);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [drawerOpen]);
 
