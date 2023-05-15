@@ -38,6 +38,7 @@
         "@testing-library/user-event": "^14.4.3",
         "@tinymce/tinymce-react": "^4.3.0",
         "apexcharts": "^3.35.5",
+        "axios": "^1.4.0",
         "formik": "^2.2.9",
         "framer-motion": "^7.3.6",
         "froala-editor": "^4.0.18",

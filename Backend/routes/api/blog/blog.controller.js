@@ -18,15 +18,24 @@ const upload = multer({ storage });
 
 // Create New Blog
 exports.create = (req, res) => {
-    Blog.create(req.body)
-        .then((data) => {
-            res.status(200).json({ success: true, message: 'Blog Created', data });
-        })
-        .catch((err) => {
-            res.status(400).json({ success: false, message: err });
-        });
-}
-
+    const { blogData, status } = req.body;
+    console.log("tpe1",blogData,status)
+    const blogDataArray = blogData.map((block) => ({
+      id: block.id,
+      type: block.type,
+      data: block.data,
+    }));
+  
+    console.log("tpe",blogDataArray)
+    Blog.create({ blog_data: blogDataArray, status: status })
+      .then((data) => {
+        res.status(200).json({ success: true, message: 'Blog Created', data });
+      })
+      .catch((err) => {
+        console.log('err', err);
+        res.status(400).json({ success: false, message: err });
+      });
+  };
 //Delete a Blog
 exports.delete = (req, res) => {
     // console.log(req.params.id)
@@ -39,7 +48,7 @@ exports.delete = (req, res) => {
 }
 
 // Update Blog
-exports.updateProduct = (req, res) => {
+exports.update = (req, res) => {
     Blog.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -55,7 +64,7 @@ exports.updateProduct = (req, res) => {
 
 
 exports.showAll = (req, res) => {
-    Product.find(query)
+    Blog.find({})
         .exec((err, data) => {
             if (err) {
                 res.status(400).json({ status: false, message: err })

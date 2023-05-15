@@ -25,6 +25,13 @@ const support = {
             icon: icons.EditOutlined
         },
         {
+            id: 'blogs-view',
+            title: 'View Blog',
+            type: 'item',
+            url: '/blogs-view',
+            icon: icons.EditOutlined
+        },
+        {
             id: 'blogs-list',
             title: 'Blogs List',
             type: 'item',
@@ -33,6 +40,7 @@ const support = {
             external: true,
             target: true
         },
+    
         {
             id: 'documentation',
             title: 'Drafts',

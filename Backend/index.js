@@ -11,7 +11,7 @@ var cors = require('cors');
 LOAD THE CONFIG
 ==========================*/
 const config = require('./config')
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 5002
 process.env.TZ = 'Asia/Kolkata'; 
 /* =======================
 EXPRESS CONFIGURATION

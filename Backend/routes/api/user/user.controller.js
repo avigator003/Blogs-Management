@@ -1,7 +1,4 @@
 const User = require('../../../Models/user')
-const Labour = require('../../../Models/labour');
-const Order = require('../../../Models/order');
-const Product = require('../../../Models/product');
 const config = require("../../../config")
 const nodemailer = require("nodemailer")
 const crypto = require('crypto')
@@ -349,23 +346,3 @@ exports.sendmail = (req, res) => {
 
 }
 
-exports.dashboardDetails = (req, res) => {
-  const userCountPromise = User.countDocuments({});
-  const layoutCountPromise = Labour.countDocuments({});
-  const orderCountPromise = Order.countDocuments({});
-  const productCountPromise = Product.countDocuments({});
-
-  Promise.all([userCountPromise, layoutCountPromise, orderCountPromise, productCountPromise])
-    .then(counts => {
-      const dashboardData = {
-        users: counts[0],
-        labours: counts[1],
-        orders: counts[2],
-        products: counts[3]
-      };
-      res.status(200).json({ 'success': true, 'data': dashboardData });
-    })
-    .catch(err => {
-      res.status(400).json({ 'success': false, 'message': err });
-    });
-};

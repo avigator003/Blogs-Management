@@ -4,8 +4,8 @@ import EditorJS from '@editorjs/editorjs';
 import { EDITOR_JS_TOOLS } from "../constants";
 import MainCard from 'components/MainCard';
 
-import avatar1 from 'assets/images/users/avatar-1.png';
 import { Button } from '../../../node_modules/@mui/material/index';
+import api from '../../axios/api';
 
 const DEFAULT_INITIAL_DATA = () => {
   return {
@@ -27,6 +27,19 @@ const EDITTOR_HOLDER_ID = 'editorjs';
 const SamplePage = (props) => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
+
+   const submitBlog = (status) =>{
+    console.log("data",status,editorData)
+    api
+    .post(`/blog/create`,{blogData:editorData.blocks,status:status})
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+
+   } 
 
   useEffect(() => {
     console.log("data", editorData)
@@ -71,6 +84,7 @@ const SamplePage = (props) => {
           variant="contained"
           color="primary"
           style={{ marginRight: 10 }}
+          onClick={()=>submitBlog("Draft")}
         >
           Save Draft
         </Button>
@@ -81,6 +95,7 @@ const SamplePage = (props) => {
           variant="contained"
           color="success"
           style={{ marginRight: 10 }}
+          onClick={()=>submitBlog("Publish")}
         >
           Publish
         </Button>
