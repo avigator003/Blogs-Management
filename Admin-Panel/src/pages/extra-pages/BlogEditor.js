@@ -24,7 +24,7 @@ const DEFAULT_INITIAL_DATA = () => {
 const EDITTOR_HOLDER_ID = 'editorjs';
 
 
-const SamplePage = (props) => {
+const BlogEditor = (props) => {
   const ejInstance = useRef();
   const [editorData, setEditorData] = React.useState(DEFAULT_INITIAL_DATA);
 
@@ -114,4 +114,4 @@ const SamplePage = (props) => {
   );
 }
 
-export default SamplePage;
+export default BlogEditor;

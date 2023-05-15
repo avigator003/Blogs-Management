@@ -8,7 +8,8 @@ import MainLayout from 'layout/MainLayout';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 
 // render - sample page
-const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
+const BlogEditor = Loadable(lazy(() => import('pages/extra-pages/BlogEditor')));
+const BlogsList = Loadable(lazy(() => import('pages/extra-pages/BlogsList')));
 const ViewBlog = Loadable(lazy(() => import('pages/extra-pages/ViewBlog')));
 
 // render - utilities
@@ -25,7 +26,7 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <SamplePage />
+            element: <BlogEditor />
         },
         {
             path: 'color',
@@ -42,11 +43,11 @@ const MainRoutes = {
         },
         {
             path: 'sample-page',
-            element: <SamplePage />
+            element: <BlogEditor />
         },
         {
             path: 'blogs-list',
-            element: <SamplePage />
+            element: <BlogsList />
         },
         {
             path: 'blogs-view',

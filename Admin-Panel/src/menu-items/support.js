@@ -25,30 +25,11 @@ const support = {
             icon: icons.EditOutlined
         },
         {
-            id: 'blogs-view',
-            title: 'View Blog',
-            type: 'item',
-            url: '/blogs-view',
-            icon: icons.EditOutlined
-        },
-        {
             id: 'blogs-list',
             title: 'Blogs List',
             type: 'item',
-            url: 'https://codedthemes.gitbook.io/mantis-react/',
-            icon: icons.UnorderedListOutlined,
-            external: true,
-            target: true
-        },
-    
-        {
-            id: 'documentation',
-            title: 'Drafts',
-            type: 'item',
-            url: 'https://codedthemes.gitbook.io/mantis-react/',
-            icon: icons.FileExclamationOutlined,
-            external: true,
-            target: true
+            url: '/blogs-list',
+            icon: icons.EditOutlined
         }
     ]
 };
